@@ -1,6 +1,6 @@
 const { log } = global.utils;
 const cron = require('node-cron');
-const admin_name = 'your uid';
+const admin_name = '61561147561510';
 
 module.exports = async function ({ api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, getText }) {
   // This is where you can add your custom code to the bot.
