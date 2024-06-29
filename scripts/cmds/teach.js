@@ -1,34 +1,33 @@
-const axios = require("axios");
- 
-module.exports = {
-  config: {
+const axios = require('axios');
+const fs = require('fs');
+
+module.exports.config = {
     name: "teach",
-    aliases: ["simteach"],
-    version: "1.0",
-    author: "Loid Butter",// Big Credits Kay Lods KENLIEPLAYS
-    countDown: 5,
+    version: "1.0.0",
     role: 0,
-    shortDescription: {
-      en: "teach sim"
-    },
-    longDescription: {
-      en: "teach sim"
-    },
-    category: "teach",
-    guide:{
-      en: "{p}teach your ask | my answer "
+    credits: "Lorenzo",
+    description: "Teaching the simini command",
+    commandCategory: "Fun",
+    usages: "teach <message> | <response>",
+    cooldowns: 10,
+};
+
+module.exports.run = async ({ api, event, args }) => {
+    const content = args.join(" ");
+    const [ask, ans] = content.split("|").map(item => item.trim());
+
+    // Checking arguments
+    if (!ask || !ans) return api.sendMessage('Missing query!', event.threadID);
+
+    const url = `https://lorenzo-rest-api.onrender.com/teach?ask=${encodeURIComponent(ask)}&ans=${encodeURIComponent(ans)}`;
+
+    try {
+        const response = await axios.get(url);
+        if (response.data) {
+            api.sendMessage(`successfully teached!\n\nYour Ask: ${ask}\nBot response: ${ans}`, event.threadID);
+        } 
+    } catch(err) {
+        api.sendMessage('Error while teaching', event.threadID);
+        console.log(err);
     }
-  },
-  onStart: async function ({ api, event, args }) {
-    const { messageID, threadID, senderID, body } = event;
-    const tid = threadID,
-          mid = messageID;
-    const content = args.join(" ").split("|").map(item => item.trim());
-    const ask = encodeURIComponent(content[0]);
-    const ans = encodeURIComponent(content[1]);
-    if (!args[0]) return api.sendMessage("Use .teach your ask | sim respond", tid, mid);
-    const res = await axios.get(`https://simsimi.fun/api/v2/?mode=teach&lang=en&message=${ask}&answer=${ans}`);
-    const responseMessage = res.data.success;
-    api.sendMessage(responseMessage, tid, mid);
-  }
 };
