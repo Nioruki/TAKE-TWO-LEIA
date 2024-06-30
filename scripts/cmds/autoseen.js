@@ -1,10 +1,3 @@
-const fs = require('fs-extra');
-const pathFile = __dirname + '/cache/autoseen.txt';
-
-if (!fs.existsSync(pathFile)) {
- fs.writeFileSync(pathFile, 'false');
-}
-
 module.exports = {
  config: {
  name: "autoseen",
