@@ -13,18 +13,18 @@ var chat = {};
 module.exports.config = {
 	name: "chat",
 	role: 1,
-  hasPermision: 0,
+  hasPermission: 1,
   version: "1.0.0",
 	credits: "Jonell Magallanes",
 	description: "remove user from the group if chat off",
 	aliases: [],
-  usePrefix: false,
+  usePrefix: true,
   commandCategory: "kick_member",
 	usage: "[on/off]",
   usages: "[on/off]",
 	cooldowns: 5,
   cooldown: 5,
-	hasPrefix: false,
+	hasPrefix: true,
 };
 
 module.exports.handleEvent = async function({ api, event }) {
