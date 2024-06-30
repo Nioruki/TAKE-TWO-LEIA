@@ -15,7 +15,7 @@ module.exports.config = {
 	role: 1,
   hasPermission: 1,
   version: "1.0.0",
-	credits: "Jonell Magallanes",
+	author: "Jonell Magallanes",
 	description: "remove user from the group if chat off",
 	aliases: [],
   usePrefix: true,
@@ -24,6 +24,8 @@ module.exports.config = {
   usages: "[on/off]",
 	cooldowns: 5,
   cooldown: 5,
+  countdown: 5,
+  
 	hasPrefix: true,
 };
 
