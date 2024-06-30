@@ -25,7 +25,7 @@ module.exports.config = {
 	cooldowns: 5,
   cooldown: 5,
   countdown: 5,
-  
+  category: "admin",
 	hasPrefix: true,
 };
 
