@@ -46,7 +46,7 @@ module.exports.handleEvent = {
 	}
 }
 
-   module.exports.onStart = async function({ api, event, args }) {
+   onStart: async function({ api, event, args }) {
 	   const { writeFileSync } = require("fs");
 	   const path = __dirname + "/../cache/chat.json";
 
