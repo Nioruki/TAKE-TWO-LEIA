@@ -75,5 +75,5 @@ module.exports.handleEvent = {
 	} else {
 		   return api.sendMessage("Admin privilege is required to change chat settings.", event.threadID);
 	     }
-    };
+    }
   };
