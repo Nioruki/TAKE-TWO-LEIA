@@ -5,6 +5,8 @@ module.exports = {
 		version: "1.0",
 		role: 0,
 		author: "Julianne",
+  usePrefix: false,
+  prefix: false,
 		description: "auto-reply",
 		category: "chat box",
 		guide: {
