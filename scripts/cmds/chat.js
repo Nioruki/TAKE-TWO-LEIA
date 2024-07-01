@@ -46,7 +46,6 @@ module.exports.handleEvent = {
 	}
 }
 
-   onStart: async function({ api, event, args }) {
 	   const { writeFileSync } = require("fs");
 	   const path = __dirname + "/../cache/chat.json";
 
@@ -74,6 +73,6 @@ module.exports.handleEvent = {
 		}
 	} else {
 		   return api.sendMessage("Admin privilege is required to change chat settings.", event.threadID);
-	     }
-    }
+	    }
+    
   };
