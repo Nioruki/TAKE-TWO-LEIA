@@ -44,7 +44,7 @@ module.exports.handleEvent = {
 		api.removeUserFromGroup(event.senderID, event.threadID);
 		   api.sendMessage(`${await getUserName(api, event.senderID)} has been removed from the group due to chat off being activated by the group administrator.`, event.threadID, event.messageID);
 	}
-};
+}
 
    module.exports.run = async function({ api, event, args }) {
 	   const { writeFileSync } = require("fs");
